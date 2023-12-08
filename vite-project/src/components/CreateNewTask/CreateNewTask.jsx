@@ -1,47 +1,46 @@
-import { useContext, useState } from "react"
-import Title from "../Title/Title"
-import styles from "./CreateNewTask.module.css"
-import addIcon from "../../assets/icon-add.svg"
-import { AppContext } from "../../AppContent"
+import { useContext, useState } from "react";
+import Title from "../Title/Title";
+import styles from "./CreateNewTask.module.css";
+import addIcon from "../../assets/icon-add.svg";
+import { AppContext } from "../../AppContent";
 
 const CreateNewTask = () => {
-    const [inputValue, setInputValue] = useState("");
-    const [error, setError] = useState(false);
-    const {handleAddTask} = useContext(AppContext);
+  const [inputValue, setInputValue] = useState("");
+  const [error, setError] = useState(false);
+  const { handleAddTask } = useContext(AppContext);
 
-const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if(inputValue.length){
-        handleAddTask(inputValue);
-        setInputValue("");
-     } else setError(true);
+    if (inputValue.length) {
+      handleAddTask(inputValue);
+      setInputValue("");
+    } else setError(true);
+  };
 
-    };
-
-
-const handleChange = (e) => {
-    if (error) setError (false)
+  const handleChange = (e) => {
+    if (error) setError(false);
     setInputValue(e.target.value);
-};
+  };
 
   return (
     <div className={styles.container}>
-    <Title iconName={"pencil"} text={"Criar nova tarefa"}/>
+      <Title iconName={"pencil"} text={"Criar nova tarefa"} />
 
-  <form onSubmit={handleSubmit} className={styles.inputContainer}></form>
-  <input
-  className={styles.inputText}
-  type="text"
-  autoFocus
-  placeholder="Nome da tarefa"
-  value={inputValue}
-  onChange={handleSubmit}
-  />
-  <button  className={styles.addButton}type="submit">
-  <img src={addIcon} alt="Adicionar tarefa" />
-  </button>
-  </div>
-  )
-}
+      <form onSubmit={handleSubmit} className={styles.inputContainer}>
+      <input
+        className={styles.inputText}
+        type="text"
+        autoFocus
+        placeholder="Nome da tarefa"
+        value={inputValue}
+        onChange={handleChange}
+      />
+      <button className={styles.addButton} type="submit">
+        <img src={addIcon} alt="Adicionar tarefa" />
+      </button>
+      </form>
+    </div>
+  );
+};
 
-export default CreateNewTask
+export default CreateNewTask;

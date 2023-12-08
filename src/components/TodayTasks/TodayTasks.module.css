@@ -4,15 +4,11 @@
     margin-top: 0;
   }
   
-  
   @media (max-width: 768px) {
     .container {
       max-width: 100%;
-      margin-top: 0 !important;
-
-
+      margin-top: 0;
     }
-  
   
     .container::after {
       content: "";
@@ -24,13 +20,11 @@
     }
   }
   
-  
   .taskList {
     display: flex;
     flex-direction: column;
     gap: 16px;
   }
-  
   
   .todayTasksMessage {
     font-family: "Roboto";
@@ -39,10 +33,7 @@
     font-weight: 700;
     color: #fff;
   
-  
     display: flex;
     justify-content: center;
   }
   
-  
-

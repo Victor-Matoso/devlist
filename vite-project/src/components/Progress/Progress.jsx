@@ -3,6 +3,7 @@ import styles from "./Progress.module.css"
 
 import { AppContext } from "../../AppContent"
 import imgUrl from "../../assets/img-trophy-min.png"
+import { useContext } from "react"
 
 const Progress = () => {
     const {progressBarValue} = useContext(AppContext)
